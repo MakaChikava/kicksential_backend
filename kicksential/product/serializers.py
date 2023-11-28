@@ -26,3 +26,17 @@ class CategorySerializer(serializers.ModelSerializer):
             "get_absolute_url",
             "products",
         )
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = (
+            "id",
+            "name",
+            "get_absolute_url",
+            "brand",
+            "color",
+            "price",
+            "favorite",
+            "get_image",
+        )
