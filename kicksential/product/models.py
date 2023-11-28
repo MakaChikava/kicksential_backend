@@ -29,7 +29,7 @@ class Product(models.Model):
     color = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     favorite = models.BooleanField(default=False)
-    Image = models.ImageField(upload_to='uploads/', blank=True, null=True) #upload_to is to folder called uploads bland and null true so that dont have to have images on all of the products
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True) #upload_to is to folder called uploads bland and null true so that dont have to have images on all of the products
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -46,26 +46,5 @@ class Product(models.Model):
             return 'http://127.0.0.1:8000' + self.image.url
         return ''
     
-    def get_thumbnail(self):
-        if self.thumbnail:
-            return 'http://127.0.0.1:8000'
-        else:
-            if self.image:
-                self.thumbnail = self.make_thumbnails(self.image)
-                self.save()
-
-                return 'http://127.0.0.1:8000' + self.thumbnail.url
-            else:
-                return ''
     
-    def make_thumbnail(self, image, size=(300, 200)):
-        img = Image.open(image)
-        img.convert('RGB')
-        img.thumbnail(size)
-
-        thumb_io = BytesIO()
-        img.save(thumb_io, 'JPEG', quality=85)
-
-        thumbnail = File(thumb_io, name=image.name)
-
-        return thumbnail
+    
