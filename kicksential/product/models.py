@@ -24,6 +24,7 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)
     slug = models.SlugField()
     brand = models.CharField(max_length=255)
     color = models.CharField(max_length=255)

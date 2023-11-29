@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'product'
 ]
 
-CORS_ALLOWED_ORGINS = [
+CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
 
