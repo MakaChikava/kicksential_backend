@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .serializers import ProductSerializers
-
+from django.views.generic.edit import UpdateView
 from rest_framework.views import APIView
+from rest_framework import generics
 from rest_framework.response import Response
 
 from .models import Product, Category
@@ -31,3 +32,7 @@ class FavoritesList(APIView):
         favorites = Product.objects.filter(favorite = True)
         serializer = FavoriteSerializer(favorites, many=True)
         return Response(serializer.data)
+    
+class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all().order_by('id')
+    serializer_class = ProductSerializers
