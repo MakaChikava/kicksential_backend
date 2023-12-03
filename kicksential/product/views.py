@@ -1,8 +1,11 @@
-from django.shortcuts import render
-from .serializers import ProductSerializers
+from django.db.models import Q
+from django.http import Http404
+
+
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 from .models import Product, Category
 from .serializers import ProductSerializers, CategorySerializer, FavoriteSerializer
@@ -38,3 +41,16 @@ class FavoritesList(APIView):
 class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializers
+
+# 
+
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')
+
+    if query:
+        products = Product.objects.filter(Q(name__icontains=query) | Q(type__icontains= query) | Q(color__icontains= query)| Q(brand__icontains= query))
+        serializer = ProductSerializers(products, many=True)
+        return Response(serializer.data)
+    else:
+        return Response({"products", []})
