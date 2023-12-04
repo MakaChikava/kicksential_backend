@@ -42,7 +42,7 @@ class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializers
 
-# 
+# ----------------- SEARCH ------------ #
 
 @api_view(['POST'])
 def search(request):
@@ -54,3 +54,50 @@ def search(request):
         return Response(serializer.data)
     else:
         return Response({"products", []})
+    
+
+# ----------------- COLOR -------------- #
+# put Q in filter because model is a string because there is no ArrayField. Q can search and find the appropriate color 
+class getBlack(APIView):
+    def get(self, request, format=None,):
+        color = Product.objects.filter(Q(color__icontains= 'black'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+class getRed(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'red'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+class getGreen(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'green'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+class getYellow(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'yellow'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+class getPink(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'pink'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+    
+class getBlue(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'blue'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+    
+class getGrey(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'grey'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
+
+class getWhite(APIView):
+    def get(self, request, format=None):
+        color = Product.objects.filter(Q(color__icontains= 'white'))
+        serializer = FavoriteSerializer(color, many=True)
+        return Response(serializer.data)
