@@ -30,7 +30,7 @@ class CategoryList(APIView):
         serializer = CategorySerializer(category)
         return Response(serializer.data)
     
-# -------------GET FAVORITES--------------- #
+# -------------GET FAVORITES--------------- #       #require authentification
 class FavoritesList(APIView):
     def get(self, request, format=None):
         favorites = Product.objects.filter(favorite = True)

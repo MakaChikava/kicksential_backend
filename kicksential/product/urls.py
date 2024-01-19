@@ -6,7 +6,7 @@ urlpatterns = [
     path('all-products/', views.ProductsList.as_view()),
     path('products/search/', views.search),
     path('products/<slug:category_slug>/', views.CategoryList.as_view()),
-    path('favorites/', views.FavoritesList.as_view()),
+    path('favorites/', views.FavoritesList.as_view()), # require authentification
     path('black/', views.getBlack.as_view()),
     path('red/', views.getRed.as_view()),
     path('green/', views.getGreen.as_view()),

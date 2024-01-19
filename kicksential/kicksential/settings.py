@@ -45,6 +45,14 @@ INSTALLED_APPS = [
 
     'product'
 ]
+# In your Django settings.py
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        # Other authentication classes as needed
+    ),
+    # Other settings
+}
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
