@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'kicksential.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd17lo2l80opo0p',
         'USER': 'qralylhxeokvae',
         'PASSWORD': '838eb2c8825a97395bdcea46236ba416211bbe09908ddf304c0d035b3f6fca0c',
