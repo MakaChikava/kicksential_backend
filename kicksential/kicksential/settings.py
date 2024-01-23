@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m5jczq2vi-sb(-kw*7168@jc=b6r5f^7rl9^ea5(tgg^mq=86s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kicksentialbk.herokuapp.com']
 
 
 # Application definition
@@ -93,10 +93,21 @@ WSGI_APPLICATION = 'kicksential.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgres_psycopg2',
+        'NAME': 'd17lo2l80opo0p',
+        'USER': 'qralylhxeokvae',
+        'PASSWORD': '838eb2c8825a97395bdcea46236ba416211bbe09908ddf304c0d035b3f6fca0c',
+        'HOST': 'ec2-54-234-13-16.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -138,6 +149,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
