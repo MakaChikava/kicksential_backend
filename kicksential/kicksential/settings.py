@@ -104,10 +104,10 @@ WSGI_APPLICATION = 'kicksential.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd17lo2l80opo0p',
-        'USER': 'qralylhxeokvae',
-        'PASSWORD': '838eb2c8825a97395bdcea46236ba416211bbe09908ddf304c0d035b3f6fca0c',
-        'HOST': 'ec2-54-234-13-16.compute-1.amazonaws.com',
+        'NAME': 'd5asg6603gpsde',
+        'USER': 'pfbhbfbldespjt',
+        'PASSWORD': 'cd7d56df8a563ef4f5ffe7f56288e09859c42723adff6ffa5f63640e9454bd0b',
+        'HOST': 'ec2-54-89-93-167.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
