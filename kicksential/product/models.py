@@ -44,7 +44,7 @@ class Product(models.Model):
     
     def get_image(self):
         if self.image:
-            return 'https://kicksentialbk-b4da2791ed28.herokuapp.com/' + self.image.url
+            return 'https://kicksentialbk-b4da2791ed28.herokuapp.com' + self.image.url
         return ''
     
     

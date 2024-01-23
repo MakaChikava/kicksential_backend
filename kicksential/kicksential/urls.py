@@ -11,4 +11,4 @@ urlpatterns = [
     path('api/v1/', TokenCreateView.as_view(), name='token_create'),  # Include JWT token creation view
     path('api/v1/', TokenDestroyView.as_view(), name='token_destroy'),  # Include JWT token destruction view
     path('api/v1/', include('product.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
