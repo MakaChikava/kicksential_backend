@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn kicksential.wsgi --log-files=-
+web: gunicorn kicksential.wsgi --log-file=-
