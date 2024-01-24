@@ -57,7 +57,8 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'https://kicksential-r6vy3qy69-makachikava.vercel.app'
+    'https://kicksential-r6vy3qy69-makachikava.vercel.app',
+    'https://kicksential.vercel.app'
 ]
 
 MIDDLEWARE = [
