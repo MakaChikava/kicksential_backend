@@ -14,7 +14,7 @@ class ProductSerializers(serializers.ModelSerializer):
             "color",
             "price",
             "favorite",
-            "get_image",
+            "image",
             
         )
 
@@ -42,5 +42,5 @@ class FavoriteSerializer(serializers.ModelSerializer):
             "color",
             "price",
             "favorite",
-            "get_image",
+            "image",
         )
