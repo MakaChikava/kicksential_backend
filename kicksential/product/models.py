@@ -30,7 +30,8 @@ class Product(models.Model):
     color = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     favorite = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='uploads/', blank=True, null=True) #upload_to is to folder called uploads bland and null true so that dont have to have images on all of the products
+    image = models.CharField(max_length=255)
+    # image = models.ImageField(upload_to='uploads/', blank=True, null=True) #upload_to is to folder called uploads bland and null true so that dont have to have images on all of the products
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -42,10 +43,10 @@ class Product(models.Model):
     def get_absolute_url(self):
         return f'/{self.category.slug}/{self.slug}/'
     
-    def get_image(self):
-        if self.image:
-            return 'https://kicksentialbk-b4da2791ed28.herokuapp.com' + self.image.url
-        return ''
+    # def get_image(self):
+    #     if self.image:
+    #         return 'https://kicksentialbk-b4da2791ed28.herokuapp.com' + self.image.url
+    #     return ''
     
     
     
