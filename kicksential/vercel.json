@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "kicksential/wsgi.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "kicksential/wsgi.py"
+      "dest": "api/index.py"
     }
   ]
 }
