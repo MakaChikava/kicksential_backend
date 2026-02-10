@@ -21,9 +21,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-m5jczq2vi-sb(-kw*7168
 
 DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
-if os.environ.get('RAILWAY_PUBLIC_DOMAIN'):
-    ALLOWED_HOSTS.append(os.environ.get('RAILWAY_PUBLIC_DOMAIN'))
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,.vercel.app').split(',')
+# Add Vercel URL if deployed
+if os.environ.get('VERCEL_URL'):
+    ALLOWED_HOSTS.append(os.environ.get('VERCEL_URL'))
 
 
 # Application definition
