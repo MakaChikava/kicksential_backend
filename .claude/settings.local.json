@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python manage.py shell:*)",
       "Bash(python manage.py check:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(head -c 100 echo \"\" echo \"\" echo \"2. products/search \\(POST\\):\" curl -s -X POST https://kicksential-backend.vercel.app/api/v1/products/search/ -H \"Content-Type: application/json\" -d '{\"\"\"\"query\"\"\"\":\"\"\"\"nike\"\"\"\"}')"
     ]
   }
 }
