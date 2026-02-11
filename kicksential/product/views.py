@@ -53,7 +53,7 @@ def search(request):
         serializer = ProductSerializers(products, many=True)
         return Response(serializer.data)
     else:
-        return Response({"products", []})
+        return Response({"products": []})
     
 
 # ----------------- COLOR -------------- #
