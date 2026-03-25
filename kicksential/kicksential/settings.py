@@ -59,6 +59,11 @@ CORS_ALLOWED_ORIGINS = [
     'https://kicksential.vercel.app'
 ]
 
+# CSRF trusted origins for Django 4.x (required for admin over HTTPS)
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.vercel.app',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
